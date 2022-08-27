@@ -1,5 +1,5 @@
 {
-    "name": "pheromone/phpcs-security-audit",
+    "name": "danaketh/phpcs-security-audit",
     "type" : "phpcodesniffer-standard",
     "description": "phpcs-security-audit is a set of PHP_CodeSniffer rules that finds vulnerabilities and weaknesses related to security in PHP code",
     "license": "GPL-3.0-or-later",
@@ -7,6 +7,10 @@
         {
             "name": "Jonathan Marcil",
             "homepage": "https://twitter.com/jonathanmarcil"
+        },
+        {
+            "name": "Daniel Tlach",
+            "homepage": "https://daniel.tlach.cz"
         }
     ],
     "require": {

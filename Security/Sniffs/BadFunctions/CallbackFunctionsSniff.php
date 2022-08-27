@@ -31,6 +31,9 @@ class CallbackFunctionsSniff implements Sniff {
 
 		if (in_array($tokens[$stackPtr]['content'], $utils::getCallbackFunctions())) {
 	        $opener = $phpcsFile->findNext(T_OPEN_PARENTHESIS, $stackPtr, null, false, null, true);
+			if (!$opener) {
+				return;
+			}
 			$closer = $tokens[$opener]['parenthesis_closer'];
             $s = $stackPtr + 1;
 			if ($tokens[$stackPtr]['content'] == 'array_filter') {

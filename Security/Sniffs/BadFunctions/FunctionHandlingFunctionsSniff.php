@@ -32,6 +32,9 @@ class FunctionHandlingFunctionsSniff implements Sniff {
 		if (in_array($tokens[$stackPtr]['content'], $utils::getFunctionhandlingFunctions())) {
             $opener = $phpcsFile->findNext(T_OPEN_PARENTHESIS, $stackPtr, null, false, null, true);
 			$closer = $tokens[$opener]['parenthesis_closer'];
+			if (!$opener) {
+				return;
+			}
             $s = $stackPtr + 1;
 			$s = $phpcsFile->findNext(array_merge(\PHP_CodeSniffer\Util\Tokens::$emptyTokens, \PHP_CodeSniffer\Util\Tokens::$bracketTokens, \PHPCS_SecurityAudit\Security\Sniffs\Utils::$staticTokens, array(T_STRING_CONCAT)), $s, $closer, true);
              if ($s) {
